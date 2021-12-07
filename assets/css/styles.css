@@ -3,15 +3,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Metroplis';
+  scale: 50%;
+  overflow-x: none;
+  scroll-behavior: smooth;
 }
 
 .sec {
+  min-height: 700px;
   position: relative;
 }
 
 /* sec-01 */
 .sec#sec-01 {
-  min-height: 700px;
   overflow: hidden;
 }
 
@@ -35,6 +38,20 @@ body {
   transform: translate(-50%, -50%);
 }
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+  .sec#sec-01 h3 {
+    left: 50%
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {
+  .sec#sec-01 h3 {
+    left: 30%
+  }
+} */
+
 .sec#sec-01 img {
   margin-bottom: 50px;
   width: 120px;
@@ -42,7 +59,6 @@ body {
 
 /* sec-02 */
 .sec#sec-02 {
-  min-height: 300px;
   background-color: #f5f3f3;
 }
 
@@ -69,9 +85,35 @@ body {
   max-height: 150px;
 }
 
+.sec#sec-02 div.bg-icons {
+  position: absolute;
+  inset: 0;
+  background-image: url('../imgs/sec-02-bg-icons.png');
+}
+
+.sec#sec-02 div.title-month {
+  margin-top: 30px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #3c3543;
+}
+
+/* sec-03 */
+.sec#sec-03 {
+  overflow: hidden;
+}
+
+.sec#sec-04 {
+  min-height: 2000px;
+}
+
 /* Animations */
 
-.shine {
+.animate .shine {
   font-family: Hack, sans-serif;
   text-transform: uppercase;
   background: linear-gradient(90deg, #000, #fff, #000);
@@ -81,10 +123,9 @@ body {
   background-repeat: no-repeat;
   animation: shine 3s linear infinite;
   position: relative;
-
 }
 
-.reveal-n-glow {
+.animate .reveal-n-glow {
   background: 50% 100% / 50% 50% no-repeat
     radial-gradient(ellipse at bottom, #fff, transparent, transparent);
   -webkit-background-clip: text;
@@ -95,30 +136,43 @@ body {
     glow 2500ms linear infinite 2000ms;
 }
 
-.typing {
-  width: 10ch;
-  animation: typing 2s steps(11), blink 0.5s step-end infinite alternate;
-  animation-delay: 1s;
+.animate .typing {
+  width: 32ch;
+  animation: typing 2s steps(31), blink 0.5s step-end infinite alternate;
+  animation-delay: 2s;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
   font-family: monospace;
 }
 
-.move-up-3 {
+.animate .move-up-3 {
   animation: moveup 1.5s;
 }
 
-.move-down-1s {
+.animate .move-down-1s {
   animation: movedown 1s;
 }
 
-.move-up-2 {
+.animate .move-up-2 {
   animation: moveup 1s;
+}
+
+.animate .look-around {
+  animation: loookaround 2s;
+}
+
+.animate .scale-up {
+  animation: scaleup 2s;
+}
+
+.animate .show-after-2s {
+  animation: showafter2s 2s;
 }
 
 @keyframes typing {
   from {
+    opacity: 1;
     width: 0;
   }
 }
@@ -169,6 +223,46 @@ body {
     top: calc(50% - 20px);
   }
 }
+
+@keyframes showafter2s {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loookaround {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes scaleup {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* Font */
 @font-face {
   font-family: 'Metroplis';
@@ -185,7 +279,7 @@ body {
 
 @font-face {
   font-family: 'Metroplis';
-  src: url('../fonts/Metropolis-SemiBold.otf') format('truetype');
+  src: url('../fonts/Metropolis-Bold.otf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
@@ -206,7 +300,19 @@ body {
   font-style: italic;
 }
 
+.ma-h2 {
+  font-size: 100px !important;
+}
+
 .ma-h3 {
+  font-size: 70px !important;
+}
+
+.ma-h4 {
+  font-size: 60px !important;
+}
+
+.ma-h5 {
   font-size: 50px !important;
 }
 

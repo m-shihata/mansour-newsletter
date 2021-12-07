@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <meta name="viewport" content="width=1280, initial-scale=1">
+
     <title>Mansour Newsletter</title>
     <link
       rel="stylesheet"
@@ -26,20 +28,134 @@
   <body>
     <section class="sec" id="sec-01">
       <div class="overlay"></div>
-      <h3 class="d-flex flex-column align-items-center ma-text-bold ma-h3">
+      <h3
+        class="sssss d-flex flex-column align-items-center ma-text-bold ma-h3"
+      >
         <div class="d-flex flex-column align-items-center reveal-n-glow mb-2">
           <img class="logo move-down-1s" src="./assets/imgs/ma-logo.png" />
-          <span class="ma-text-white ">MANSOUR</span>
+          <span class="ma-text-white">MANSOUR</span>
           <span class="ma-text-white">AUTOMATIVE</span>
         </div>
-        <span class="ma-text-blue move-up-2">NEWSLETTER</span>
+        <span class="ma-text-blue anim move-up-2">NEWSLETTER</span>
       </h3>
     </section>
-    <section class="sec" id="sec-02">
-      <div class="straps">
-        <div id="strap-01" class="strap ma-bg-blue move-up-2"></div>
-        <div id="strap-02" class="strap ma-bg-white move-up-3"></div>
+    <section
+      class="sec d-flex justify-content-center align-items-center"
+      id="sec-02"
+    >
+      <div class="bg-icons"></div>
+      <div class="sssss straps">
+        <div id="strap-01" class="strap ma-bg-blue anim move-up-2"></div>
+        <div id="strap-02" class="strap ma-bg-white anim move-up-3"></div>
       </div>
-      </section>
+      <div
+        class="
+          sssss
+          content
+          d-flex
+          h-100
+          flex-column
+          justify-content-center
+          align-items-center
+        "
+      >
+        <img
+          class="anim scale-up"
+          src="./assets/imgs/sec-02-goggles.png"
+          width="200px"
+        />
+        <div
+          class="ma-h2 ma-text-bold ma-text-blue text-center"
+          style="line-height: 80px; letter-spacing: -5px"
+        >
+          CLIMPS IN<br />BLINKS
+        </div>
+        <div class="title-month ma-text-white">AUGUST'S21 NEWSLETTER</div>
+      </div>
+    </section>
+    <section
+      class="
+        sec
+        w-100
+        d-flex
+        flex-column
+        justify-content-start
+        align-items-center
+      "
+      id="sec-03"
+    >
+      <img src="./assets/imgs/sec-03-mansour-hits.png" style="width: 100vw" />
+      <div class="sssss d-flex flex-column align-items-center">
+        <div
+          class="
+            amin
+            scale-up
+            title-month
+            ma-text-red ma-h5
+            mt-4
+            text-center
+            w-75
+            mx-5
+          "
+        >
+          Here's the latest achievement for each department at mansour for
+          2021's 2nd quarter!
+        </div>
+        <div
+          class="
+            stay-alerted
+            mx-5
+            ma-h4 ma-text-bold
+            text-center
+            show-after-2s
+            ma-text-red
+            mt-2
+          "
+          style="letter-spacing: -2px"
+        >
+          STAY UPDATED 350..STAY ALERTED!
+        </div>
+      </div>
+    </section>
+    <section
+      class="
+        sec
+        w-100
+        d-flex
+        flex-column
+        justify-content-center
+        align-items-center
+      "
+      id="sec-04"
+    ></section>
   </body>
+  <script>
+    const animElms = document.querySelectorAll('.sssss');
+
+    observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        console.log(entry.target.id, entry.intersectionRatio);
+        const animated = entry.target.classList.contains('animate');
+        if (entry.intersectionRatio > 0) {
+          if (!animated) entry.target.classList.add('animate');
+        } else {
+          if (animated) entry.target.classList.remove('animate');
+        }
+      });
+    });
+
+    animElms.forEach(el => {
+      observer.observe(el);
+    });
+
+    var siteWidth = 1280;
+    var scale = screen.width / siteWidth;
+
+    document
+      .querySelector('meta[name="viewport"]')
+      .setAttribute(
+        'content',
+        'width=' + siteWidth + ', initial-scale=' + scale + ''
+      );
+  </script>
 </html>
